@@ -59,11 +59,14 @@ if (timelineDetailEl) {
 const initials = (name) =>
   name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
 
+const avatarHTML = (name, photo) =>
+  photo ? `<img src="${photo}" alt="${name}" />` : initials(name);
+
 const advisorCardEl = document.getElementById("advisorCard");
 if (advisorCardEl) {
   const a = MSC_DATA.team.advisor;
   advisorCardEl.innerHTML = `
-    <div class="avatar">${initials(a.name)}</div>
+    <div class="avatar">${avatarHTML(a.name, a.photo)}</div>
     <div>
       <h3>${a.name}</h3>
       <div class="role">${a.role}</div>
@@ -72,18 +75,48 @@ if (advisorCardEl) {
     </div>`;
 }
 
-const leaderGridEl = document.getElementById("leaderGrid");
-if (leaderGridEl) {
-  leaderGridEl.innerHTML = MSC_DATA.team.coPresidents
-    .map(
-      (name, i) => `
-    <div class="leader-card">
-      <div class="no">LEAD · ${String(i + 1).padStart(3, "0")}</div>
-      <h4>${name}</h4>
-      <div class="role">Co-President</div>
-    </div>`
-    )
-    .join("");
+/* ---------- Org chart (team page) ---------- */
+const orgChartEl = document.getElementById("orgChart");
+if (orgChartEl) {
+  const a = MSC_DATA.team.advisor;
+
+  const advisorNode = `
+    <div class="org-tier org-tier--single org-tier--trunk">
+      <div class="org-node org-node--advisor">
+        <div class="org-avatar">${avatarHTML(a.name, a.photo)}</div>
+        <h4>${a.name}</h4>
+        <div class="org-role">${a.role}</div>
+      </div>
+    </div>`;
+
+  const leadershipNode = `
+    <div class="org-tier org-tier--branch org-tier--trunk">
+      ${MSC_DATA.team.leadership
+        .map(
+          (m) => `
+        <div class="org-node">
+          <div class="org-avatar">${avatarHTML(m.name, m.photo)}</div>
+          <h4>${m.name}</h4>
+          <div class="org-role">${m.role}</div>
+        </div>`
+        )
+        .join("")}
+    </div>`;
+
+  const committeeNode = `
+    <div class="org-tier org-tier--branch">
+      ${MSC_DATA.team.committees
+        .map(
+          (c) => `
+        <div class="org-node org-node--group">
+          <div class="org-role">${c.name}</div>
+          <ul class="org-member-list">${c.members.map((n) => `<li>${n}</li>`).join("")}</ul>
+        </div>`
+        )
+        .join("")}
+    </div>`;
+
+  orgChartEl.innerHTML = advisorNode + leadershipNode + committeeNode;
 }
 
 const memberListEl = document.getElementById("memberList");

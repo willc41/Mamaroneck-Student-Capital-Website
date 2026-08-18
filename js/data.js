@@ -56,13 +56,29 @@ const MSC_DATA = {
   team: {
     advisor: {
       name: "Peter O'Byrne",
-      role: "President & Faculty Advisor",
+      role: "Faculty Advisor",
+      photo: "assets/img/team/peter-obyrne.png",
       bio: "Peter O'Byrne is the President of Mamaroneck Student Capital and the faculty advisor to the Mamaroneck High School Student Investment Club. He currently teaches AP Macroeconomics and Original Civic Research in Action (OCRA) at MHS. During his five years at MHS, Peter has also taught Economics and Personal Finance, Current Issues in Government and Law, and Global History. In addition to his teaching responsibilities, Peter is an assistant coach with the varsity football team. Prior to joining the faculty at Mamaroneck, Peter taught economics and math at KIPP NYC College Prep in the Bronx, NY for nine years.",
       email: "mamaroneckstudentcapital@gmail.com",
     },
+
+    // Org chart — leadership tier (photo optional; falls back to initials).
+    leadership: [
+      { name: "Will Cohen", role: "President", photo: "assets/img/team/will-cohen.png" },
+      { name: "Jonah Klein", role: "President", photo: null },
+      { name: "Ethan Moss", role: "President", photo: null },
+    ],
+
+    // Org chart — committee tier. Each committee is a box listing its members.
+    committees: [
+      { name: "Portfolio Managers", members: ["Hudson Berger", "Ryan Bloch"] },
+      { name: "Market Updates", members: ["Alex Blanco", "Bruno Iberez-Hernandez", "Will Charalumbous"] },
+      { name: "Reporter", members: ["Spencer Baron"] },
+      { name: "Secretary", members: ["Andrew Sami", "Micheal Guidice"] },
+    ],
+
     // Roster year — update this and the lists below each fall.
     rosterYear: "2024-2025",
-    coPresidents: ["Griffin Moore", "Peter McMillan", "William Cohen"],
     members: [
       "Hudson Berger", "Ryan Bloch", "Judd Borenstein", "Maddison Cashman",
       "William Cohen", "Gus Constantine", "Charles Cox", "Jacob Cutler",
