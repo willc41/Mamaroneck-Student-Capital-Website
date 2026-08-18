@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | Mamaroneck Student Capital</title>
+<meta name="description" content="Mamaroneck Student Capital's mission, structure, and annual cycle from fall research to the spring Investment Night." />
+<link rel="icon" href="assets/img/logo/logo-black.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css?v=1" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="ticker-band"><span>MAMARONECK STUDENT CAPITAL</span><span>FY26 &middot; STUDENT-MANAGED FUND</span></div>
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/img/logo/logo-cream.png" alt="MSC logo" />
+      <span class="wordmark">Student Capital<small>Mamaroneck High School</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="support.html">Support</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <div class="page-header">
+    <div class="wrap">
+      <span class="eyebrow">Mission &amp; Structure</span>
+      <h1>Investment education with a charitable purpose.</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Mission Statement</h2>
+      <div class="prose"><p id="missionStatement"></p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Our Structure</h2>
+      <div class="prose" id="missionStructure"></div>
+      <p class="callout" id="taxNote"></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Annual Timeline</h2>
+      <p class="section-lede">The fund runs on a yearly cycle &mdash; from fall research, to spring pitches, to the Investment Night that renews it.</p>
+
+      <div class="cycle-wrap">
+        <svg viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Annual cycle diagram: Fall Semester, Spring Semester, Investment Night">
+          <circle cx="240" cy="240" r="170" fill="none" stroke="#E3D9C8" stroke-width="1.5"/>
+          <path d="M 240 70 A 170 170 0 0 1 387 325" fill="none" stroke="#E07A33" stroke-width="3"/>
+          <path d="M 387 325 A 170 170 0 0 1 93 325" fill="none" stroke="#0A0A08" stroke-width="3"/>
+          <path d="M 93 325 A 170 170 0 0 1 240 70" fill="none" stroke="#E07A33" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+
+          <circle cx="240" cy="70" r="5" fill="#E07A33"/>
+          <circle cx="387" cy="325" r="5" fill="#0A0A08"/>
+          <circle cx="93" cy="325" r="5" fill="#E07A33"/>
+
+          <text x="240" y="45" text-anchor="middle" class="cycle-label">01</text>
+          <text x="240" y="30" text-anchor="middle" class="cycle-title" data-cycle-label="0">Fall Semester</text>
+
+          <text x="420" y="360" text-anchor="middle" class="cycle-label">02</text>
+          <text x="420" y="378" text-anchor="middle" class="cycle-title" data-cycle-label="1">Spring Semester</text>
+
+          <text x="60" y="360" text-anchor="middle" class="cycle-label">03</text>
+          <text x="60" y="378" text-anchor="middle" class="cycle-title" data-cycle-label="2">Investment Night</text>
+
+          <text x="240" y="235" text-anchor="middle" class="cycle-title" font-size="13">The cycle</text>
+          <text x="240" y="255" text-anchor="middle" class="cycle-sub">renews annually</text>
+        </svg>
+      </div>
+
+      <div class="timeline-detail" id="timelineDetail"></div>
+    </div>
+  </section>
+
+  <section class="section--dark">
+    <div class="wrap" style="padding:20px 0;">
+      <span class="eyebrow">Questions about the fund?</span>
+      <h2 style="max-width:22ch;">We're happy to walk you through how it works.</h2>
+      <div class="hero-actions" style="margin-top:10px;">
+        <a href="contact.html" class="btn" style="background:var(--orange); border-color:var(--orange); color:var(--ink);">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span>&copy; <span id="year"></span> Mamaroneck Student Capital</span>
+    <span>Mamaroneck High School</span>
+  </div>
+</footer>
+
+<script src="js/data.js?v=1"></script>
+<script src="js/main.js?v=1"></script>
+</body>
+</html>
