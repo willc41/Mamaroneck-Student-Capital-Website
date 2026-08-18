@@ -64,7 +64,7 @@ const MSC_DATA = {
 
     // Org chart — leadership tier (photo optional; falls back to initials).
     leadership: [
-      { name: "Will Cohen", role: "President", photo: "assets/img/team/will-cohen.png" },
+      { name: "Will Cohen", role: "Founder/President", photo: "assets/img/team/will-cohen.png" },
       { name: "Jonah Klein", role: "President", photo: null },
       { name: "Ethan Moss", role: "President", photo: null },
     ],
