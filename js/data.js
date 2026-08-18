@@ -19,7 +19,7 @@ const MSC_DATA = {
       "The MSC is an adult-run organization that is raising money from friends, family, and the community in support of its mission. The MSC investment portfolio is managed by the students in the high school investment club, with oversight from the MSC Board. Like an endowment, a portion of MSC funds is donated annually to support student activities and local charitable organizations. Inspired by many existing programs at MHS, MSC's goal is to provide a hands-on investment learning experience for students — one where they must think critically to promote capital growth, manage investment risk, and maximize community impact.",
     ],
     taxNote:
-      "Mamaroneck Student Capital has submitted an application for 501(c)(3) tax-exempt status with the IRS. While the application is pending, donations are not yet tax-deductible. Once approved, donations will be considered tax deductible retroactive to our date of formation, May 8, 2025.",
+      "Mamaroneck Student Capital is a recognized 501(c)(3) tax-exempt organization. Donations are tax-deductible, retroactive to our date of formation, May 8, 2025.",
   },
 
   timeline: [

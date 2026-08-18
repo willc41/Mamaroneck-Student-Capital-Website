@@ -61,6 +61,15 @@ a { color: inherit; }
   justify-content: space-between;
   gap: 16px;
 }
+
+@media (max-width: 640px) {
+  .ticker-band {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 10.5px;
+    padding: 10px 20px;
+  }
+}
 .ticker-band span:last-child { opacity: 0.65; }
 
 /* ---------- Header / nav ---------- */
