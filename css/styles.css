@@ -262,7 +262,7 @@ a { color: inherit; }
 /* Page header banner (non-home pages) */
 .page-header {
   padding: 36px 0 28px;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
 }
 .page-header .eyebrow { margin-bottom: 8px; }
 .page-header h1 {
