@@ -39,6 +39,7 @@ a { color: inherit; }
   margin: 0 auto;
   padding: 0 28px;
 }
+.wrap--narrow { max-width: 760px; }
 
 :focus-visible {
   outline: 3px solid var(--orange);
@@ -188,7 +189,7 @@ a { color: inherit; }
   position: relative;
   overflow: hidden;
   border-bottom: 2px solid var(--ink);
-  padding: 90px 0 70px;
+  padding: 68px 0 56px;
 }
 .claw-accent {
   position: absolute;
@@ -228,7 +229,7 @@ a { color: inherit; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* ---------- Sections ---------- */
-.section { padding: 68px 0; border-bottom: 1px solid var(--rule); }
+.section { padding: 52px 0; border-bottom: 1px solid var(--rule); }
 .section:last-of-type { border-bottom: none; }
 .section--dark { background: var(--ink); color: var(--cream); border-bottom: none; }
 .section--dark .eyebrow { color: var(--orange); }
@@ -260,16 +261,16 @@ a { color: inherit; }
 
 /* Page header banner (non-home pages) */
 .page-header {
-  padding: 64px 0 48px;
+  padding: 36px 0 28px;
   border-bottom: 2px solid var(--ink);
 }
-.page-header .eyebrow { margin-bottom: 16px; }
+.page-header .eyebrow { margin-bottom: 8px; }
 .page-header h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(24px, 2.6vw, 34px);
+  font-size: clamp(22px, 2.4vw, 30px);
   white-space: nowrap;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
 }
 
 @media (max-width: 640px) {
