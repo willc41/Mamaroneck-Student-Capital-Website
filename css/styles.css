@@ -267,8 +267,13 @@ a { color: inherit; }
 .page-header h1 {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(24px, 2.6vw, 34px);
+  white-space: nowrap;
   margin: 0 0 16px;
+}
+
+@media (max-width: 640px) {
+  .page-header h1 { white-space: normal; }
 }
 .page-header p { font-size: 17px; color: var(--ink-soft); max-width: 60ch; margin: 0; }
 
