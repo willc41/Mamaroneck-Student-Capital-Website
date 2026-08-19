@@ -558,6 +558,39 @@ a { color: inherit; }
 .donate-box h3 { font-family: var(--font-display); font-weight: 400; font-size: 19px; margin: 0 0 12px; }
 .donate-box p { font-size: 15px; color: var(--ink-soft); margin: 0 0 20px; }
 
+/* ---------- Newsletter ---------- */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.newsletter-card {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 24px;
+}
+.newsletter-card.is-empty {
+  border-style: dashed;
+  border-color: var(--orange-dark);
+}
+.newsletter-card .date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  display: block;
+  margin-bottom: 12px;
+}
+.newsletter-card.is-empty .date { color: var(--ink-soft); }
+.newsletter-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 17px; margin: 0 0 16px; }
+.newsletter-card .btn { font-size: 13px; padding: 10px 18px; }
+
+@media (max-width: 780px) {
+  .newsletter-grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Contact ---------- */
 .contact-block {
   border: 2px solid var(--ink);

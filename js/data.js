@@ -100,6 +100,15 @@ const MSC_DATA = {
     body: "Mamaroneck Student Capital was formed thanks to the generous support of a fast-track grant from the Mamaroneck Schools Foundation. The grant, awarded in the spring of 2025, was used to pay for legal services needed to register Mamaroneck Student Capital as a non-profit organization.",
   },
 
+  // Quarterly newsletter — most recent first. Set date + file once an issue
+  // is ready; leave file: null to show a "Coming soon" card with no link.
+  // Drop the PDF itself in assets/files/.
+  newsletters: [
+    { date: "June 1, 2026", title: "Year One Annual Report", file: "assets/files/msc-year-one-report-2026-06-01.pdf" },
+    { date: null, title: "Newsletter", file: null },
+    { date: null, title: "Newsletter", file: null },
+  ],
+
   contact: {
     volunteerNote:
       "We are always looking for community members with financial experience to come speak with students or work with the club in some fashion.",

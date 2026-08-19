@@ -142,6 +142,28 @@ if (donateTaxNoteEl) donateTaxNoteEl.textContent = MSC_DATA.mission.taxNote;
 const gratitudeBodyEl = document.getElementById("gratitudeBody");
 if (gratitudeBodyEl) gratitudeBodyEl.textContent = MSC_DATA.gratitude.body;
 
+/* ---------- Newsletter ---------- */
+const newsletterGridEl = document.getElementById("newsletterGrid");
+if (newsletterGridEl) {
+  newsletterGridEl.innerHTML = MSC_DATA.newsletters
+    .map((n) => {
+      if (!n.file) {
+        return `
+        <div class="newsletter-card is-empty">
+          <span class="date">Coming soon</span>
+          <h3>${n.title}</h3>
+        </div>`;
+      }
+      return `
+        <div class="newsletter-card">
+          <span class="date">${n.date}</span>
+          <h3>${n.title}</h3>
+          <a href="${n.file}" class="btn btn--outline" target="_blank" rel="noopener">Download PDF</a>
+        </div>`;
+    })
+    .join("");
+}
+
 /* ---------- Contact ---------- */
 const contactEmailEl = document.getElementById("contactEmail");
 if (contactEmailEl) {
