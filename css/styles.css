@@ -564,6 +564,7 @@ a { color: inherit; }
   background: var(--paper);
   padding: 30px;
   max-width: 480px;
+  margin: 0 auto;
 }
 .contact-block .label {
   font-family: var(--font-mono);
