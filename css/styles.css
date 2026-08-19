@@ -203,13 +203,10 @@ a { color: inherit; }
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--ink);
-  background: var(--paper);
-  padding: 32px;
 }
 .hero-mark img {
   width: 100%;
-  max-width: 220px;
+  max-width: 300px;
 }
 
 @media (max-width: 860px) {
