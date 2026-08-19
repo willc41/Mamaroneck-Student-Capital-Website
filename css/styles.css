@@ -759,3 +759,16 @@ a { color: inherit; }
   color: var(--ink-soft);
 }
 .portfolio-legend .ticker { margin-left: 2px; }
+
+.donation-stat {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 640px;
+}
+.donation-stat .stat-value { font-family: var(--font-display); font-weight: 400; font-size: 30px; margin-top: 8px; }

@@ -116,6 +116,7 @@ const MSC_DATA = {
   // (allocation %, return %, totals) recalculates automatically.
   portfolio: {
     asOf: "August 19, 2026",
+    donationsReceived: 1000,
     holdings: [
       { name: "Alphabet Inc. Class C", ticker: "GOOG", sector: "Communication Services", thesis: "Dominant position in digital advertising, search, cloud computing, and artificial intelligence through Google and Gemini.", costBasis: 999.83, marketValue: 892.58 },
       { name: "Broadcom Inc.", ticker: "AVGO", sector: "Information Technology", thesis: "Exposure to AI infrastructure, networking, and data center growth.", costBasis: 498.79, marketValue: 459.54 },

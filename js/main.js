@@ -255,6 +255,9 @@ if (document.getElementById("portfolioStats")) {
   }
 }
 
+const donationsReceivedEl = document.getElementById("donationsReceived");
+if (donationsReceivedEl) donationsReceivedEl.textContent = usd(MSC_DATA.portfolio.donationsReceived);
+
 /* ---------- Contact ---------- */
 const contactEmailEl = document.getElementById("contactEmail");
 if (contactEmailEl) {
