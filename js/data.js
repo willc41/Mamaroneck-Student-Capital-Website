@@ -109,6 +109,42 @@ const MSC_DATA = {
     { date: null, title: "Newsletter", file: null },
   ],
 
+  // Portfolio — from the Year One Annual Report (as of the date below).
+  // allocation drives the pie chart; update it once per-holding dollar
+  // amounts are available (currently just Cash vs. Equities in aggregate).
+  // holdings drives the table; entryDate is null until purchase dates are
+  // provided — renders as "—" until then.
+  portfolio: {
+    asOf: "June 1, 2026",
+    summary: {
+      totalValue: "$15,004.13",
+      costBasis: "$13,575.90",
+      unrealizedGain: "$1,428.23",
+      totalReturnYTD: "+7.31%",
+      equityReturn: "+13.75%",
+      sp500Return: "+8.58%",
+      cash: "$6,000.00",
+    },
+    allocation: [
+      { label: "Equities", value: 9004.13 },
+      { label: "Cash & Equivalents", value: 6000 },
+    ],
+    holdings: [
+      { name: "Taiwan Semiconductor Manufacturing Co. (TSMC)", sector: "Information Technology", thesis: "Foundational semiconductor manufacturing leader powering global AI demand.", entryDate: null, returnPct: 47.10 },
+      { name: "Palo Alto Networks, Inc.", sector: "Information Technology", thesis: "Long-term cybersecurity demand and enterprise security leadership.", entryDate: null, returnPct: 48.16 },
+      { name: "Broadcom Inc.", sector: "Information Technology", thesis: "Exposure to AI infrastructure, networking, and data center growth.", entryDate: null, returnPct: 17.24 },
+      { name: "Robinhood Markets, Inc.", sector: "Financials", thesis: "Retail investing platform and crypto trading exposure.", entryDate: null, returnPct: 16.71 },
+      { name: "Vanguard S&P 500 ETF", sector: "Diversified Market Exposure", thesis: "Core diversified U.S. equity exposure through dollar cost averaging.", entryDate: null, returnPct: 8.58 },
+      { name: "Prologis, Inc.", sector: "Real Estate", thesis: "E-commerce and logistics infrastructure exposure.", entryDate: null, returnPct: 9.36 },
+      { name: "Eli Lilly and Co.", sector: "Health Care", thesis: "Leadership in obesity and diabetes treatment markets.", entryDate: null, returnPct: 5.57 },
+      { name: "Dominion Energy, Inc.", sector: "Utilities", thesis: "Stable defensive utility with dividend and infrastructure exposure.", entryDate: null, returnPct: 3.44 },
+      { name: "Alphabet Inc. Class C", sector: "Communication Services", thesis: "Dominant position in digital advertising, search, cloud computing, and artificial intelligence through Google and Gemini.", entryDate: null, returnPct: -2.93 },
+      { name: "EMCOR Group Inc.", sector: "Industrials", thesis: "Exposure to U.S. infrastructure spending, electrical construction, data center development, and mission-critical building services.", entryDate: null, returnPct: -2.45 },
+      { name: "Linde PLC", sector: "Materials", thesis: "Global leader in industrial gases with exposure to manufacturing, healthcare, clean energy, and semiconductor production.", entryDate: null, returnPct: -3.11 },
+      { name: "Fidelity Money Market Fund", sector: "Cash & Equivalents", thesis: "Capital preservation and liquidity reserve.", entryDate: null, returnPct: null },
+    ],
+  },
+
   contact: {
     volunteerNote:
       "We are always looking for community members with financial experience to come speak with students or work with the club in some fashion.",

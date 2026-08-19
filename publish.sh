@@ -9,7 +9,7 @@ set -e
 cd "$(dirname "$0")"
 
 MSG="${1:-Update site content}"
-PAGES="index.html about.html team.html donate.html contact.html support.html"
+PAGES="index.html about.html team.html portfolio.html donate.html contact.html support.html"
 
 for FILE in js/data.js js/main.js css/styles.css; do
   CURRENT=$(grep -o "${FILE}?v=[0-9]*" index.html | head -1 | grep -o "[0-9]*$")

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Support | Mamaroneck Student Capital</title>
-<meta name="description" content="Thanking the Mamaroneck Schools Foundation for supporting Mamaroneck Student Capital's founding." />
+<title>Portfolio | Mamaroneck Student Capital</title>
+<meta name="description" content="Mamaroneck Student Capital's portfolio allocation, holdings, and returns." />
 <link rel="icon" href="assets/img/logo/logo-black.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,22 +38,46 @@
 
   <div class="page-header">
     <div class="wrap">
-      <span class="eyebrow">Founding Grant</span>
-      <h1>Thank you to our supporters</h1>
+      <span class="eyebrow">Fund Performance</span>
+      <h1>Holdings and returns</h1>
+      <p id="portfolioAsOf"></p>
     </div>
   </div>
 
   <section class="section">
-    <div class="wrap wrap--narrow">
-      <div class="prose"><p id="gratitudeBody"></p></div>
+    <div class="wrap">
+      <div class="stat-grid" id="portfolioStats"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Allocation</h2>
+      <p class="section-lede">Cash vs. equities, in aggregate. A full per-holding breakdown is coming soon.</p>
+      <div class="portfolio-chart-wrap">
+        <div class="portfolio-donut" id="portfolioDonut"></div>
+        <ul class="portfolio-legend" id="portfolioLegend"></ul>
+      </div>
     </div>
   </section>
 
   <section class="section" style="border-bottom:none;">
     <div class="wrap">
-      <h2>Quarterly Newsletter</h2>
-      <p class="section-lede">The latest updates from the fund, published each quarter.</p>
-      <div class="newsletter-grid" id="newsletterGrid"></div>
+      <h2>Holdings</h2>
+      <p class="section-lede">Individual returns since purchase. Entry dates and position sizes will be added once available.</p>
+      <div class="table-scroll">
+        <table class="portfolio-table">
+          <thead>
+            <tr>
+              <th>Investment</th>
+              <th>Sector</th>
+              <th>Entry Date</th>
+              <th>Return</th>
+            </tr>
+          </thead>
+          <tbody id="portfolioTableBody"></tbody>
+        </table>
+      </div>
     </div>
   </section>
 

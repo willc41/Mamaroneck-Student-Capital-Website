@@ -9,6 +9,7 @@
   --orange: #E07A33;
   --orange-dark: #C4661F;
   --rule: #E3D9C8;
+  --negative: #A3432D;
 
   --font-display: 'Archivo Black', sans-serif;
   --font-body: 'Work Sans', sans-serif;
@@ -633,3 +634,112 @@ a { color: inherit; }
   font-family: var(--font-mono);
   opacity: 0.8;
 }
+
+/* ---------- Portfolio: summary stats ---------- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.stat-card {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 20px;
+}
+.stat-card .stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+.stat-card .stat-value {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 24px;
+}
+.stat-card .stat-value.is-negative { color: var(--negative); }
+
+@media (max-width: 780px) {
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Portfolio: allocation donut ---------- */
+.portfolio-chart-wrap {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.portfolio-donut {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.portfolio-donut-center {
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+}
+.portfolio-donut-center .value { font-family: var(--font-display); font-size: 19px; line-height: 1.1; }
+.portfolio-donut-center .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+.portfolio-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; min-width: 220px; }
+.portfolio-legend li { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.portfolio-legend .swatch { width: 14px; height: 14px; flex-shrink: 0; border-radius: 2px; }
+.portfolio-legend .lbl { flex: 1; }
+.portfolio-legend .amt { color: var(--ink-soft); font-size: 13px; }
+.portfolio-legend .pct { font-family: var(--font-mono); font-size: 13px; font-weight: 600; min-width: 44px; text-align: right; }
+
+/* ---------- Portfolio: holdings table ---------- */
+.table-scroll { overflow-x: auto; }
+.portfolio-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 620px; }
+.portfolio-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  font-weight: 600;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--ink);
+  white-space: nowrap;
+}
+.portfolio-table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.portfolio-table .name { font-weight: 600; }
+.portfolio-table .thesis { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
+.portfolio-table .sector,
+.portfolio-table .entry { color: var(--ink-soft); white-space: nowrap; }
+.portfolio-table .ret {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+.portfolio-table .ret.is-negative { color: var(--negative); }
+.portfolio-table .ret.is-positive { color: var(--orange-dark); }

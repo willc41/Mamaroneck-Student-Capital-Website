@@ -164,6 +164,87 @@ if (newsletterGridEl) {
     .join("");
 }
 
+/* ---------- Portfolio ---------- */
+const PORTFOLIO_COLORS = ["var(--orange)", "var(--ink)", "var(--orange-dark)", "#8a8578", "#c9a876", "#5c5648"];
+
+const portfolioAsOfEl = document.getElementById("portfolioAsOf");
+if (portfolioAsOfEl) portfolioAsOfEl.textContent = `As of ${MSC_DATA.portfolio.asOf}`;
+
+const portfolioStatsEl = document.getElementById("portfolioStats");
+if (portfolioStatsEl) {
+  const s = MSC_DATA.portfolio.summary;
+  const stats = [
+    { label: "Total Value", value: s.totalValue },
+    { label: "Cash", value: s.cash },
+    { label: "Total Return YTD", value: s.totalReturnYTD, neg: s.totalReturnYTD.trim().startsWith("-") },
+    { label: "vs. S&P 500", value: s.sp500Return },
+  ];
+  portfolioStatsEl.innerHTML = stats
+    .map(
+      (st) => `
+    <div class="stat-card">
+      <span class="stat-label">${st.label}</span>
+      <div class="stat-value${st.neg ? " is-negative" : ""}">${st.value}</div>
+    </div>`
+    )
+    .join("");
+}
+
+const portfolioDonutEl = document.getElementById("portfolioDonut");
+const portfolioLegendEl = document.getElementById("portfolioLegend");
+if (portfolioDonutEl && portfolioLegendEl) {
+  const data = MSC_DATA.portfolio.allocation;
+  const total = data.reduce((sum, d) => sum + d.value, 0);
+  let cumulative = 0;
+  const stops = data.map((d, i) => {
+    const start = (cumulative / total) * 100;
+    cumulative += d.value;
+    const end = (cumulative / total) * 100;
+    return `${PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]} ${start}% ${end}%`;
+  });
+  portfolioDonutEl.style.background = `conic-gradient(${stops.join(", ")})`;
+  portfolioDonutEl.innerHTML = `
+    <div class="portfolio-donut-center">
+      <div class="value">${MSC_DATA.portfolio.summary.totalValue}</div>
+      <div class="label">TOTAL VALUE</div>
+    </div>`;
+
+  portfolioLegendEl.innerHTML = data
+    .map((d, i) => {
+      const pct = ((d.value / total) * 100).toFixed(1);
+      const amt = d.value.toLocaleString(undefined, { style: "currency", currency: "USD" });
+      return `
+      <li>
+        <span class="swatch" style="background:${PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]}"></span>
+        <span class="lbl">${d.label}</span>
+        <span class="amt">${amt}</span>
+        <span class="pct">${pct}%</span>
+      </li>`;
+    })
+    .join("");
+}
+
+const portfolioTableBodyEl = document.getElementById("portfolioTableBody");
+if (portfolioTableBodyEl) {
+  portfolioTableBodyEl.innerHTML = MSC_DATA.portfolio.holdings
+    .map((h) => {
+      const hasReturn = typeof h.returnPct === "number";
+      const retClass = hasReturn ? (h.returnPct >= 0 ? "is-positive" : "is-negative") : "";
+      const retText = hasReturn ? `${h.returnPct >= 0 ? "+" : ""}${h.returnPct.toFixed(2)}%` : "—";
+      return `
+      <tr>
+        <td>
+          <div class="name">${h.name}</div>
+          <div class="thesis">${h.thesis}</div>
+        </td>
+        <td class="sector">${h.sector}</td>
+        <td class="entry">${h.entryDate || "—"}</td>
+        <td class="ret ${retClass}">${retText}</td>
+      </tr>`;
+    })
+    .join("");
+}
+
 /* ---------- Contact ---------- */
 const contactEmailEl = document.getElementById("contactEmail");
 if (contactEmailEl) {
