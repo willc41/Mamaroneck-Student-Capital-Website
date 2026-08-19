@@ -713,7 +713,7 @@ a { color: inherit; }
 
 /* ---------- Portfolio: holdings table ---------- */
 .table-scroll { overflow-x: auto; }
-.portfolio-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 620px; }
+.portfolio-table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 740px; }
 .portfolio-table th {
   text-align: left;
   font-family: var(--font-mono);
@@ -726,6 +726,9 @@ a { color: inherit; }
   border-bottom: 2px solid var(--ink);
   white-space: nowrap;
 }
+.portfolio-table th:nth-child(3),
+.portfolio-table th:nth-child(4),
+.portfolio-table th:nth-child(5) { text-align: right; }
 .portfolio-table td {
   padding: 14px;
   border-bottom: 1px solid var(--rule);
@@ -733,8 +736,13 @@ a { color: inherit; }
 }
 .portfolio-table .name { font-weight: 600; }
 .portfolio-table .thesis { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
-.portfolio-table .sector,
-.portfolio-table .entry { color: var(--ink-soft); white-space: nowrap; }
+.portfolio-table .sector { color: var(--ink-soft); white-space: nowrap; }
+.portfolio-table .amt-col {
+  font-family: var(--font-mono);
+  text-align: right;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
 .portfolio-table .ret {
   font-family: var(--font-mono);
   font-weight: 600;
@@ -743,3 +751,11 @@ a { color: inherit; }
 }
 .portfolio-table .ret.is-negative { color: var(--negative); }
 .portfolio-table .ret.is-positive { color: var(--orange-dark); }
+
+.ticker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.portfolio-legend .ticker { margin-left: 2px; }

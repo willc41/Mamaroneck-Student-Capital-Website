@@ -165,21 +165,31 @@ if (newsletterGridEl) {
 }
 
 /* ---------- Portfolio ---------- */
-const PORTFOLIO_COLORS = ["var(--orange)", "var(--ink)", "var(--orange-dark)", "#8a8578", "#c9a876", "#5c5648"];
+const PORTFOLIO_COLORS = [
+  "var(--orange)", "var(--ink)", "var(--orange-dark)", "#8a8578",
+  "#c9a876", "#5c5648", "#e8b98a", "#3d3a33", "#d99a5c", "#736c5e",
+  "#f0d2ab", "#231f1a",
+];
+const usd = (n) => n.toLocaleString(undefined, { style: "currency", currency: "USD" });
+const pct = (n) => `${n >= 0 ? "+" : ""}${n.toFixed(2)}%`;
 
 const portfolioAsOfEl = document.getElementById("portfolioAsOf");
 if (portfolioAsOfEl) portfolioAsOfEl.textContent = `As of ${MSC_DATA.portfolio.asOf}`;
 
-const portfolioStatsEl = document.getElementById("portfolioStats");
-if (portfolioStatsEl) {
-  const s = MSC_DATA.portfolio.summary;
-  const stats = [
-    { label: "Total Value", value: s.totalValue },
-    { label: "Cash", value: s.cash },
-    { label: "Total Return YTD", value: s.totalReturnYTD, neg: s.totalReturnYTD.trim().startsWith("-") },
-    { label: "vs. S&P 500", value: s.sp500Return },
-  ];
-  portfolioStatsEl.innerHTML = stats
+if (document.getElementById("portfolioStats")) {
+  const holdings = MSC_DATA.portfolio.holdings;
+  const totalValue = holdings.reduce((sum, h) => sum + h.marketValue, 0);
+  const totalCostBasis = holdings.reduce((sum, h) => sum + h.costBasis, 0);
+  const totalGain = totalValue - totalCostBasis;
+  const totalReturn = (totalGain / totalCostBasis) * 100;
+  const cash = holdings.filter((h) => h.sector === "Cash & Equivalents").reduce((sum, h) => sum + h.marketValue, 0);
+
+  document.getElementById("portfolioStats").innerHTML = [
+    { label: "Total Value", value: usd(totalValue) },
+    { label: "Cash", value: usd(cash) },
+    { label: "Unrealized Gain", value: usd(totalGain), neg: totalGain < 0 },
+    { label: "Unrealized Return", value: pct(totalReturn), neg: totalReturn < 0 },
+  ]
     .map(
       (st) => `
     <div class="stat-card">
@@ -188,61 +198,61 @@ if (portfolioStatsEl) {
     </div>`
     )
     .join("");
-}
 
-const portfolioDonutEl = document.getElementById("portfolioDonut");
-const portfolioLegendEl = document.getElementById("portfolioLegend");
-if (portfolioDonutEl && portfolioLegendEl) {
-  const data = MSC_DATA.portfolio.allocation;
-  const total = data.reduce((sum, d) => sum + d.value, 0);
-  let cumulative = 0;
-  const stops = data.map((d, i) => {
-    const start = (cumulative / total) * 100;
-    cumulative += d.value;
-    const end = (cumulative / total) * 100;
-    return `${PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]} ${start}% ${end}%`;
-  });
-  portfolioDonutEl.style.background = `conic-gradient(${stops.join(", ")})`;
-  portfolioDonutEl.innerHTML = `
-    <div class="portfolio-donut-center">
-      <div class="value">${MSC_DATA.portfolio.summary.totalValue}</div>
-      <div class="label">TOTAL VALUE</div>
-    </div>`;
+  const donutEl = document.getElementById("portfolioDonut");
+  const legendEl = document.getElementById("portfolioLegend");
+  if (donutEl && legendEl) {
+    const sorted = holdings.slice().sort((a, b) => b.marketValue - a.marketValue);
+    let cumulative = 0;
+    const stops = sorted.map((h, i) => {
+      const start = (cumulative / totalValue) * 100;
+      cumulative += h.marketValue;
+      const end = (cumulative / totalValue) * 100;
+      return `${PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]} ${start}% ${end}%`;
+    });
+    donutEl.style.background = `conic-gradient(${stops.join(", ")})`;
+    donutEl.innerHTML = `
+      <div class="portfolio-donut-center">
+        <div class="value">${usd(totalValue)}</div>
+        <div class="label">TOTAL VALUE</div>
+      </div>`;
 
-  portfolioLegendEl.innerHTML = data
-    .map((d, i) => {
-      const pct = ((d.value / total) * 100).toFixed(1);
-      const amt = d.value.toLocaleString(undefined, { style: "currency", currency: "USD" });
-      return `
+    legendEl.innerHTML = sorted
+      .map((h, i) => {
+        const share = ((h.marketValue / totalValue) * 100).toFixed(1);
+        return `
       <li>
         <span class="swatch" style="background:${PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length]}"></span>
-        <span class="lbl">${d.label}</span>
-        <span class="amt">${amt}</span>
-        <span class="pct">${pct}%</span>
+        <span class="lbl">${h.name} <span class="ticker">${h.ticker}</span></span>
+        <span class="amt">${usd(h.marketValue)}</span>
+        <span class="pct">${share}%</span>
       </li>`;
-    })
-    .join("");
-}
+      })
+      .join("");
+  }
 
-const portfolioTableBodyEl = document.getElementById("portfolioTableBody");
-if (portfolioTableBodyEl) {
-  portfolioTableBodyEl.innerHTML = MSC_DATA.portfolio.holdings
-    .map((h) => {
-      const hasReturn = typeof h.returnPct === "number";
-      const retClass = hasReturn ? (h.returnPct >= 0 ? "is-positive" : "is-negative") : "";
-      const retText = hasReturn ? `${h.returnPct >= 0 ? "+" : ""}${h.returnPct.toFixed(2)}%` : "—";
-      return `
+  const tbodyEl = document.getElementById("portfolioTableBody");
+  if (tbodyEl) {
+    tbodyEl.innerHTML = holdings
+      .slice()
+      .sort((a, b) => (b.marketValue - b.costBasis) / b.costBasis - (a.marketValue - a.costBasis) / a.costBasis)
+      .map((h) => {
+        const returnPct = ((h.marketValue - h.costBasis) / h.costBasis) * 100;
+        const retClass = returnPct > 0 ? "is-positive" : returnPct < 0 ? "is-negative" : "";
+        return `
       <tr>
         <td>
-          <div class="name">${h.name}</div>
+          <div class="name">${h.name} <span class="ticker">${h.ticker}</span></div>
           <div class="thesis">${h.thesis}</div>
         </td>
         <td class="sector">${h.sector}</td>
-        <td class="entry">${h.entryDate || "—"}</td>
-        <td class="ret ${retClass}">${retText}</td>
+        <td class="amt-col">${usd(h.costBasis)}</td>
+        <td class="amt-col">${usd(h.marketValue)}</td>
+        <td class="ret ${retClass}">${pct(returnPct)}</td>
       </tr>`;
-    })
-    .join("");
+      })
+      .join("");
+  }
 }
 
 /* ---------- Contact ---------- */
