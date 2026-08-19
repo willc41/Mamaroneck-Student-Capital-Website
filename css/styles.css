@@ -206,7 +206,7 @@ a { color: inherit; }
 }
 .hero-mark img {
   width: 100%;
-  max-width: 300px;
+  max-width: 380px;
 }
 
 @media (max-width: 860px) {
