@@ -255,8 +255,8 @@ if (document.getElementById("portfolioStats")) {
   }
 }
 
-const donationsReceivedEl = document.getElementById("donationsReceived");
-if (donationsReceivedEl) donationsReceivedEl.textContent = usd(MSC_DATA.portfolio.donationsReceived);
+const givenToCommunityEl = document.getElementById("givenToCommunity");
+if (givenToCommunityEl) givenToCommunityEl.textContent = usd(MSC_DATA.portfolio.givenToCommunity);
 
 /* ---------- Contact ---------- */
 const contactEmailEl = document.getElementById("contactEmail");
