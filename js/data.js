@@ -24,31 +24,39 @@ const MSC_DATA = {
 
   timeline: [
     {
-      no: "01",
-      title: "Fall Semester",
+      no: null,
+      eyebrow: "Kickoff",
+      title: "Fall Club Fair",
       points: [
-        "The MHS Student Investment Club begins weekly meetings.",
-        "Faculty advisor, guest speakers, and club leadership teach lessons to club members.",
-        "Club leadership monitors the existing investment portfolio.",
+        "MSC introduces the fund to the school and recruits new members at the fall club fair.",
+        "Kicks off the year, before research or pitching begins.",
+      ],
+    },
+    {
+      no: "01",
+      title: "Fall Investment Night",
+      points: [
+        "Weekly club meetings begin.",
+        "New members learn how to research companies and build investment proposals.",
+        "Members present company pitches to a guest speaker and the club.",
       ],
     },
     {
       no: "02",
-      title: "Spring Semester",
+      title: "Winter Investment Night",
       points: [
-        "Students form groups that work together throughout the spring.",
-        "Each group researches and prepares a stock pitch on an investment of their choosing.",
-        "Club leadership identifies a local charitable organization to support.",
+        "Members continue researching and building new proposals.",
+        "A new round of company pitches is presented to a guest speaker and the club.",
       ],
     },
     {
       no: "03",
-      title: "Investment Night",
+      title: "Spring Investment Night",
       points: [
-        "Student groups pitch their investments to the adult MSC Board.",
-        "Investments that win board approval are made as the portfolio is updated.",
-        "A portion of assets is donated to student activities at MHS and a local charity.",
-        "The cycle renews for the next school year.",
+        "Members finalize research and proposals for the year.",
+        "Final company pitches are presented to a guest speaker and the club.",
+        "A portion of the fund is donated to student activities and local charities.",
+        "The cycle renews with next fall's Club Fair.",
       ],
     },
   ],

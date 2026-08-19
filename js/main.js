@@ -36,8 +36,17 @@ if (taxNoteEl) taxNoteEl.textContent = MSC_DATA.mission.taxNote;
 const cycleLabels = document.querySelectorAll("[data-cycle-label]");
 if (cycleLabels.length) {
   cycleLabels.forEach((el) => {
-    const phase = MSC_DATA.timeline[Number(el.dataset.cycleLabel)];
-    if (phase) el.textContent = phase.title;
+    const idx = el.dataset.cycleLabel;
+    const phase = MSC_DATA.timeline[Number(idx)];
+    if (!phase) return;
+    const contEl = document.querySelector(`[data-cycle-label-cont="${idx}"]`);
+    if (contEl) {
+      const words = phase.title.split(" ");
+      contEl.textContent = words.pop();
+      el.textContent = words.join(" ");
+    } else {
+      el.textContent = phase.title;
+    }
   });
 }
 
@@ -47,7 +56,7 @@ if (timelineDetailEl) {
     .map(
       (phase) => `
     <div class="timeline-phase">
-      <div class="no">${phase.no}</div>
+      <div class="no">${phase.no || phase.eyebrow || ""}</div>
       <h3>${phase.title}</h3>
       <ul>${phase.points.map((pt) => `<li>${pt}</li>`).join("")}</ul>
     </div>`
