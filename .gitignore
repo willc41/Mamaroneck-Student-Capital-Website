@@ -1,2 +1,9 @@
 .DS_Store
 design-preview.html
+
+# Personal/financial documents and stray screenshots dropped in the
+# project root that don't belong in the site repo (scoped to root only,
+# so this doesn't affect real assets like assets/files/*.pdf)
+/*.pdf
+/Claude
+/Screenshot*.png
