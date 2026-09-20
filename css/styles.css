@@ -452,7 +452,14 @@ a { color: inherit; }
   text-align: center;
 }
 .org-node--advisor { width: 184px; }
+.org-node--advisor-side { border-style: dashed; }
 .org-node--group { width: 200px; text-align: left; }
+
+.org-divider {
+  width: 2px;
+  align-self: stretch;
+  background: var(--rule);
+}
 
 .org-avatar {
   width: 68px;
@@ -503,6 +510,9 @@ a { color: inherit; }
   }
   .org-tier--trunk::after,
   .org-tier--branch .org-node::before {
+    display: none;
+  }
+  .org-divider {
     display: none;
   }
   .org-node,

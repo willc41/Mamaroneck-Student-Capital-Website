@@ -89,17 +89,14 @@ const orgChartEl = document.getElementById("orgChart");
 if (orgChartEl) {
   const a = MSC_DATA.team.advisor;
 
-  const advisorNode = `
-    <div class="org-tier org-tier--single org-tier--trunk">
-      <div class="org-node org-node--advisor">
+  const leadershipNode = `
+    <div class="org-tier org-tier--trunk">
+      <div class="org-node org-node--advisor-side">
         <div class="org-avatar">${avatarHTML(a.name, a.photo)}</div>
         <h4>${a.name}</h4>
         <div class="org-role">${a.role}</div>
       </div>
-    </div>`;
-
-  const leadershipNode = `
-    <div class="org-tier org-tier--branch org-tier--trunk">
+      <div class="org-divider" aria-hidden="true"></div>
       ${MSC_DATA.team.leadership
         .map(
           (m) => `
@@ -125,7 +122,7 @@ if (orgChartEl) {
         .join("")}
     </div>`;
 
-  orgChartEl.innerHTML = advisorNode + leadershipNode + committeeNode;
+  orgChartEl.innerHTML = leadershipNode + committeeNode;
 }
 
 const memberListEl = document.getElementById("memberList");
