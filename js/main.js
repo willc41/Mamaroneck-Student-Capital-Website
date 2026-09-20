@@ -90,23 +90,25 @@ if (orgChartEl) {
   const a = MSC_DATA.team.advisor;
 
   const leadershipNode = `
-    <div class="org-tier org-tier--trunk">
+    <div class="org-tier org-tier--leadership-row">
       <div class="org-node org-node--advisor-side">
         <div class="org-avatar">${avatarHTML(a.name, a.photo)}</div>
         <h4>${a.name}</h4>
         <div class="org-role">${a.role}</div>
       </div>
       <div class="org-divider" aria-hidden="true"></div>
-      ${MSC_DATA.team.leadership
-        .map(
-          (m) => `
-        <div class="org-node">
-          <div class="org-avatar">${avatarHTML(m.name, m.photo)}</div>
-          <h4>${m.name}</h4>
-          <div class="org-role">${m.role}</div>
-        </div>`
-        )
-        .join("")}
+      <div class="org-subgroup">
+        ${MSC_DATA.team.leadership
+          .map(
+            (m) => `
+          <div class="org-node">
+            <div class="org-avatar">${avatarHTML(m.name, m.photo)}</div>
+            <h4>${m.name}</h4>
+            <div class="org-role">${m.role}</div>
+          </div>`
+          )
+          .join("")}
+      </div>
     </div>`;
 
   const committeeNode = `

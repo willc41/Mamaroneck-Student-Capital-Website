@@ -420,17 +420,26 @@ a { color: inherit; }
   margin: 0 auto;
   position: relative;
 }
-.org-tier--trunk { padding-bottom: 36px; }
-.org-tier--trunk::after {
+.org-tier--leadership-row { padding-bottom: 36px; }
+
+.org-subgroup {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+.org-subgroup::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  top: 100%;
   left: 50%;
   width: 2px;
   height: 36px;
   background: var(--ink);
   transform: translateX(-1px);
 }
+
 .org-tier--branch { border-top: 2px solid var(--ink); padding-top: 36px; }
 .org-tier--branch .org-node { position: relative; }
 .org-tier--branch .org-node::before {
@@ -500,7 +509,8 @@ a { color: inherit; }
 @media (max-width: 700px) {
   .org-tier,
   .org-tier--branch,
-  .org-tier--trunk {
+  .org-tier--leadership-row,
+  .org-subgroup {
     flex-direction: column;
     align-items: center;
     border-top: none;
@@ -508,7 +518,7 @@ a { color: inherit; }
     padding-bottom: 20px;
     gap: 20px;
   }
-  .org-tier--trunk::after,
+  .org-subgroup::after,
   .org-tier--branch .org-node::before {
     display: none;
   }
