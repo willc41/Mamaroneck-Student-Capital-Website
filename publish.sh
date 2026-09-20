@@ -24,4 +24,4 @@ git commit -m "$MSG"
 git push
 
 echo ""
-echo "Published to GitHub Pages. Domain cutover to mamaroneckstudentcapital.org is pending."
+echo "Published. Live within about 10 minutes at https://mamkstudentcapital.org"
