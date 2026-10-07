@@ -15,9 +15,11 @@ for FILE in js/data.js js/main.js css/styles.css; do
   CURRENT=$(grep -o "${FILE}?v=[0-9]*" index.html | head -1 | grep -o "[0-9]*$")
   NEXT=$((CURRENT + 1))
   ESCAPED=$(echo "$FILE" | sed 's/\//\\\//g')
-  sed -i '' "s/${ESCAPED}?v=${CURRENT}/${ESCAPED}?v=${NEXT}/g" $PAGES
+  # -i.bak works on both macOS (BSD) and Linux (GNU) sed
+  sed -i.bak "s/${ESCAPED}?v=${CURRENT}/${ESCAPED}?v=${NEXT}/g" $PAGES
   echo "Bumped ${FILE}: v${CURRENT} -> v${NEXT}"
 done
+rm -f $(for P in $PAGES; do echo "$P.bak"; done)
 
 git add -A
 git commit -m "$MSG"

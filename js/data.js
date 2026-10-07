@@ -123,21 +123,21 @@ const MSC_DATA = {
   // below). Update these two numbers per holding and everything else
   // (allocation %, return %, totals) recalculates automatically.
   portfolio: {
-    asOf: "September 17, 2026",
+    asOf: "October 6, 2026",
     givenToCommunity: 1200,
     holdings: [
-      { name: "Alphabet Inc. Class C", ticker: "GOOG", sector: "Communication Services", thesis: "Dominant position in digital advertising, search, cloud computing, and artificial intelligence through Google and Gemini.", costBasis: 999.83, marketValue: 899.07 },
-      { name: "Broadcom Inc.", ticker: "AVGO", sector: "Information Technology", thesis: "Exposure to AI infrastructure, networking, and data center growth.", costBasis: 498.79, marketValue: 443.85 },
-      { name: "Dominion Energy, Inc.", ticker: "D", sector: "Utilities", thesis: "Stable defensive utility with dividend and infrastructure exposure.", costBasis: 999.97, marketValue: 1020.28 },
-      { name: "Eli Lilly and Co.", ticker: "LLY", sector: "Health Care", thesis: "Leadership in obesity and diabetes treatment markets.", costBasis: 1017.43, marketValue: 1152.44 },
-      { name: "EMCOR Group Inc.", ticker: "EME", sector: "Industrials", thesis: "Exposure to U.S. infrastructure spending, electrical construction, data center development, and mission-critical building services.", costBasis: 998.49, marketValue: 857.61 },
+      { name: "Alphabet Inc. Class C", ticker: "GOOG", sector: "Communication Services", thesis: "Dominant position in digital advertising, search, cloud computing, and artificial intelligence through Google and Gemini.", costBasis: 999.83, marketValue: 901.45 },
+      { name: "Broadcom Inc.", ticker: "AVGO", sector: "Information Technology", thesis: "Exposure to AI infrastructure, networking, and data center growth.", costBasis: 498.79, marketValue: 480.29 },
+      { name: "Dominion Energy, Inc.", ticker: "D", sector: "Utilities", thesis: "Stable defensive utility with dividend and infrastructure exposure.", costBasis: 999.97, marketValue: 983.94 },
+      { name: "Eli Lilly and Co.", ticker: "LLY", sector: "Health Care", thesis: "Leadership in obesity and diabetes treatment markets.", costBasis: 1017.43, marketValue: 1157.49 },
+      { name: "EMCOR Group Inc.", ticker: "EME", sector: "Industrials", thesis: "Exposure to U.S. infrastructure spending, electrical construction, data center development, and mission-critical building services.", costBasis: 998.49, marketValue: 969.64 },
       { name: "Fidelity Money Market Fund", ticker: "SPRXX", sector: "Cash & Equivalents", thesis: "Capital preservation and liquidity reserve.", costBasis: 4845.49, marketValue: 4845.49 },
-      { name: "Linde PLC", ticker: "LIN", sector: "Materials", thesis: "Global leader in industrial gases with exposure to manufacturing, healthcare, clean energy, and semiconductor production.", costBasis: 1017.32, marketValue: 916.96 },
-      { name: "Palo Alto Networks, Inc.", ticker: "PANW", sector: "Information Technology", thesis: "Long-term cybersecurity demand and enterprise security leadership.", costBasis: 999.86, marketValue: 1886.55 },
-      { name: "Prologis, Inc.", ticker: "PLD", sector: "Real Estate", thesis: "E-commerce and logistics infrastructure exposure.", costBasis: 999.89, marketValue: 1051.70 },
-      { name: "Robinhood Markets, Inc.", ticker: "HOOD", sector: "Financials", thesis: "Retail investing platform and crypto trading exposure.", costBasis: 500.01, marketValue: 711.68 },
-      { name: "Taiwan Semiconductor Manufacturing Co. (TSMC)", ticker: "TSM", sector: "Information Technology", thesis: "Foundational semiconductor manufacturing leader powering global AI demand.", costBasis: 499.90, marketValue: 717.67 },
-      { name: "Vanguard S&P 500 ETF", ticker: "VOO", sector: "Diversified Market Exposure", thesis: "Core diversified U.S. equity exposure through dollar cost averaging.", costBasis: 4998.92, marketValue: 5466.63 },
+      { name: "Linde PLC", ticker: "LIN", sector: "Materials", thesis: "Global leader in industrial gases with exposure to manufacturing, healthcare, clean energy, and semiconductor production.", costBasis: 1017.32, marketValue: 979.90 },
+      { name: "Palo Alto Networks, Inc.", ticker: "PANW", sector: "Information Technology", thesis: "Long-term cybersecurity demand and enterprise security leadership.", costBasis: 999.86, marketValue: 2112.15 },
+      { name: "Prologis, Inc.", ticker: "PLD", sector: "Real Estate", thesis: "E-commerce and logistics infrastructure exposure.", costBasis: 999.89, marketValue: 1001.13 },
+      { name: "Robinhood Markets, Inc.", ticker: "HOOD", sector: "Financials", thesis: "Retail investing platform and crypto trading exposure.", costBasis: 500.01, marketValue: 725.87 },
+      { name: "Taiwan Semiconductor Manufacturing Co. (TSMC)", ticker: "TSM", sector: "Information Technology", thesis: "Foundational semiconductor manufacturing leader powering global AI demand.", costBasis: 499.90, marketValue: 804.48 },
+      { name: "Vanguard S&P 500 ETF", ticker: "VOO", sector: "Diversified Market Exposure", thesis: "Core diversified U.S. equity exposure through dollar cost averaging.", costBasis: 4998.92, marketValue: 5584.93 },
     ],
   },
 
